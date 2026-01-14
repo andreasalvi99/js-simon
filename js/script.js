@@ -8,6 +8,6 @@ for (let i = 0; i < 5; i++) {
   const randomNumber = Math.floor(Math.random() * 100 + 1);
   console.log(randomNumber);
   randomNumbers.push(randomNumber);
+  numbersDisplay.innerText = randomNumbers.join(" ");
 }
-numbersDisplay.innerText = `${randomNumbers}`;
 console.log(randomNumbers);
