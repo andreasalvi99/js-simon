@@ -16,14 +16,13 @@ const randomNumbers = []; // ?? Creo array vuoto in cui inserirli
 
 for (let i = 0; i < 5; i++) {
   const randomNumber = Math.floor(Math.random() * 100 + 1);
-  console.log(randomNumber);
 
   randomNumbers.push(randomNumber);
   numbersDisplay.innerText = randomNumbers.join(" "); // ?? Mostro in HTML
 }
 
 // ?? Imposto il countdown
-let countdownSec = 2;
+let countdownSec = 11;
 
 const intervalId = setInterval(countDownTimer, 1000);
 countDownTimer();
@@ -65,7 +64,6 @@ inputForm.addEventListener("submit", (e) => {
 
     if (randomNumbers.indexOf(currentValue) !== -1) {
       commonNums.push(currentValue);
-      console.log(commonNums);
     }
   }
   if (commonNums.length > 0) {
