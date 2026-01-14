@@ -16,10 +16,11 @@ const randomNumbers = []; // ?? Creo array vuoto in cui inserirli
 
 for (let i = 0; i < 5; i++) {
   const randomNumber = Math.floor(Math.random() * 100 + 1);
+  console.log(randomNumber);
+
   randomNumbers.push(randomNumber);
   numbersDisplay.innerText = randomNumbers.join(" "); // ?? Mostro in HTML
 }
-console.log(randomNumbers);
 
 // ?? Imposto il countdown
 let countdownSec = 2;
@@ -56,20 +57,21 @@ inputForm.addEventListener("submit", (e) => {
     userValue4,
     userValue5,
   ];
-  console.log(userInput);
+
+  let commonNums = [];
 
   for (let i = 0; i < userInput.length; i++) {
     const currentValue = userInput[i];
-    console.log("currentValue:", currentValue);
 
-    for (let j = 0; j < randomNumbers.length; j++) {
-      const currentRandomValue = randomNumbers[j];
-      console.log("currentRandomValue:", currentRandomValue);
-
-      if (currentValue === currentRandomValue) {
-        outcome.innerText = "Hai indovinato";
-      }
+    if (randomNumbers.indexOf(currentValue) !== -1) {
+      commonNums.push(currentValue);
+      console.log(commonNums);
     }
-    console.log("----------------------------");
   }
+  if (commonNums.length > 0) {
+    outcome.innerText = `Hai indovinato ${commonNums.length} numeri`;
+  } else {
+    outcome.innerText = `Non hai indovinato nessun numero`;
+  }
+  outcome.classList.add("text-black");
 });
